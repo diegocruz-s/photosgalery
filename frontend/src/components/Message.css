@@ -1,0 +1,11 @@
+.message{
+    text-align: center;
+    margin-top: 1em;
+    font-size: 1.3em;
+}
+.error p{
+    color: #f00;
+}
+.success p{
+    color: #0f0;
+}

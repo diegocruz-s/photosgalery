@@ -1,0 +1,124 @@
+.photoDetails{
+
+}
+.optionsPhoto{
+    display: flex;
+    justify-content: space-around;
+}
+.optionsPhoto button{
+    padding: .5em;
+    cursor: pointer;
+    margin-top: 1em;
+    border-radius: .5em;
+    border: 1px solid #fff;
+    background-color: transparent;
+    transition: .2s;
+}
+.optionsPhoto .home button:hover{
+    background-color: #505050;
+}
+.optionsPhoto .deletePhoto button:hover{
+    background-color: #f74646;
+}
+.optionsPhoto .editPhoto button:hover{
+    background-color: #1a6be6;
+}
+.optionsPhoto button a{
+    text-decoration: none;
+}
+.details {
+    text-align: center;
+}
+.details .namePhoto{
+    font-size: 2em;
+    margin-top: 1em;
+}
+.details .descPhoto{
+    font-size: 1.3em;
+    margin: .8em;
+}
+.details img{
+    max-height: 70vh;
+    max-width: 95vw;
+}
+.confirmDelete{
+    background-color: rgb(196, 108, 108);
+    position: absolute;
+    padding: 1em;
+    border-radius: 1em;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.confirmDelete h2{
+    margin-bottom: 1em;
+}
+.confirmDelete .btns {
+    display: flex;
+    justify-content: space-around;
+}
+.confirmDelete .btns button{
+    padding: .5em;
+    border-radius: .5em;
+    border: none;
+    color: #171717;
+    cursor: pointer;
+}
+.formEdit{
+    position: absolute;
+    top: 6%;
+    right: 3%;
+    width: 30%;
+}
+.formEdit form{
+    display: flex;
+    flex-direction: column;
+}
+.formEdit input[type='text']{
+    width: 100%;
+    padding: .2em;
+    margin-top: .3em;
+    margin-bottom: .3em;
+    border-radius: .3em;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+.formEdit input[type='submit']{
+    width: 100%;
+    border-radius: .3em;
+    border: 1px solid #fff;
+    background-color: transparent;   
+    cursor: pointer;
+    transition: .2s;
+    padding: .3em;
+}
+.formEdit input[type='submit']:hover{
+    background-color: #1a6be6;
+    color: #fff;
+}
+.formEdit button.cancelEdit{
+    padding: .2em;
+    width: 100%;
+    margin-top: .5em;
+    border: none;
+    border-radius: .5em;
+    background-color: #f77676;
+    cursor: pointer;
+}
+.formEdit button.cancelEdit:hover{
+    background-color: #f74646;
+}
+@media (max-width: 750px) {
+    .optionsPhoto .home button{
+        background-color: #505050;
+    }
+    .optionsPhoto .deletePhoto button{
+        background-color: #f74646;
+    }
+    .optionsPhoto .editPhoto button{
+        background-color: #1a6be6;
+    }
+    .formEdit button.cancelEdit{
+        background-color: #f74646;
+    }
+}

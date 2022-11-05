@@ -6,7 +6,7 @@ import './FormCreate.css';
 
 const FormCreate = () => {
 
-    const { loading, error, success, createPhoto } = useContext(PhotosContext);
+    const { loading, error, success, createPhoto, resetStates } = useContext(PhotosContext);
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
@@ -14,7 +14,6 @@ const FormCreate = () => {
     const refInputImage = useRef();
 
     const handleFile = (e) => {
-        console.log(e.target.files[0])
         setImage(e.target.files[0]);
         setPreviewImage(e.target.files[0]);
     }
@@ -26,14 +25,13 @@ const FormCreate = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        resetStates();
 
         const newPhoto = {
             name, image, description
         }
 
         const formData = new FormData();
-
-        console.log(newPhoto);
 
         Object.keys(newPhoto).forEach(key => {
             formData.append(key, newPhoto[key]);

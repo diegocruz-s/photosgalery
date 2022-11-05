@@ -1,8 +1,7 @@
 import React from 'react'
-import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react'
-import { PhotosContext } from '../context/photoContext';
+import './Message.css'
 
 const Message = ({ msg, type }) => {
     

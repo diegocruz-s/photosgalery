@@ -90,7 +90,6 @@ export const PhotosProvider = ({ children }) => {
             return;
         }
 
-        console.log(res)
         setSuccess(res.success);
 
         photo.name = newPhoto.name;

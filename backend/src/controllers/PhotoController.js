@@ -37,13 +37,14 @@ class PhotoController {
         try {
             const query = `SELECT * FROM photos`;
 
-            db.query(query, (err, datas) => {
+            return new Promise(function(resolve, reject){
+                db.query(query, (err, datas) => {
                 if(err) {
-                    return res.status(422).json({ error: 'Erro na captura de fotos!' })
+                    return reject(res.status(422).json({ error: 'Erro na captura de fotos!' }));
                 }else {
-                    return res.status(200).json({ photos: datas });
+                    return resolve(res.status(200).json({ photos: datas }));
                 }
-            })
+            })})
         } catch (error) {
             console.log('Error create', error.message);
             return res.json({ error: 'Error create!' });
@@ -57,13 +58,14 @@ class PhotoController {
         const query = `SELECT * FROM ?? WHERE ?? = ?`;
         const data = ['photos', 'id', id];
 
-        db.query(query, data, (error, datas) => {
+        return new Promise(function(resolve, reject){
+            db.query(query, data, (error, datas) => {
             if(error){
-                return res.status(404).json({ error: error.message })
+                return reject(res.status(404).json({ error: error.message }));
             }else{
-                return res.status(201).json({ photo: datas })
+                return resolve(res.status(201).json({ photo: datas }))
             }
-        })
+        })});
 
     }
 
@@ -78,13 +80,14 @@ class PhotoController {
         const query = `UPDATE photos SET ?? = ?, ?? = ? WHERE ?? = ?`;
         const data = ['name', name, 'description', description,'id', id];
 
-        db.query(query, data, (err) => {
+        return new Promise(function(resolve, reject){
+            db.query(query, data, (err) => {
             if(err) {
-                return res.status(422).json({ error: err.message });
+                return reject(res.status(422).json({ error: err.message }));
             }else {
-                return res.status(201).json({ success: 'Foto atualizada!' });
+                return resolve(res.status(201).json({ success: 'Foto atualizada!' }));
             }
-        });
+        })});
         
     }
 
@@ -93,13 +96,14 @@ class PhotoController {
         const query = `DELETE FROM photos WHERE ?? = ?`
         const data = ['id', id];
 
-        db.query(query, data, (err) => {
+        return new Promise(function(resolve, reject){
+            db.query(query, data, (err) => {
             if(err){
-                return res.status(422).json({ error: 'Erro ao deletar a foto!' });
+                return reject(res.status(422).json({ error: 'Erro ao deletar a foto!' }));
             }else {
-                return res.status(200).json({ success: 'Foto apagada!' });
+                return resolve(res.status(200).json({ success: 'Foto apagada!' }));
             }
-        });
+        })});
 
     }
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { routeImgs } from "../../utils/api";
 import { Link } from 'react-router-dom';
 import Message from "../../components/Message";
+import './PhotoDetails.css';
 
 const PhotoDetails = () => {
 
@@ -75,8 +76,8 @@ const PhotoDetails = () => {
       {photo && (
         <>
           <div className="details">
-            <p>{photo.name}</p>
-            <p>{photo.description}</p>
+            <p className="namePhoto">{photo.name}</p>
+            <p className="descPhoto">{photo.description}</p>
             <img src={`${routeImgs}/${photo.image}`} alt="" />
           </div>
 
@@ -93,7 +94,7 @@ const PhotoDetails = () => {
                     <input type="submit" value="Atualizar" />
                   )}
                 </form>
-                <button onClick={() => setEditPhoto(false)}>X</button>
+                <button className="cancelEdit" onClick={() => setEditPhoto(false)}>X</button>
               </div>
             )}
           </div>
@@ -102,8 +103,10 @@ const PhotoDetails = () => {
             {deletePhoto && (
               <div className="confirmDelete">
                 <h2>Deseja apagar a imagem?</h2>
-                <Link to='/'><button onClick={() => handleDeletePhoto(photo.id)}>Sim</button></Link>
-                <button onClick={() => setDeletePhoto(false)}>Não</button>
+                <div className="btns">
+                  <Link to='/'><button onClick={() => handleDeletePhoto(photo.id)}>Sim</button></Link>
+                  <button onClick={() => setDeletePhoto(false)}>Não</button>
+                </div>
               </div>
             )}
           </div>
